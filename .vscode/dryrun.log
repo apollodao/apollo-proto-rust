@@ -1,0 +1,4 @@
+make: Entering directory `/Users/georgemcaskill/apollo-proto-rust'
+cargo build && cargo run
+make: Leaving directory `/Users/georgemcaskill/apollo-proto-rust'
+ 
