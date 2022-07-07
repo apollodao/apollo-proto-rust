@@ -6,6 +6,7 @@ edition = "2021"
 [dependencies]
 prost = "0.10"
 prost-types = "0.10"
+serde = "1.0.138"
 
 #[build-dependencies]
 #prost-build = { version = "0.10" }
