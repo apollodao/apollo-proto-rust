@@ -5,7 +5,7 @@ pub enum OsmosisTypeURLs {
     Mint,
     Burn,
     SwapExactAmountIn,
-    MsgJoinPool,
+    JoinPool,
 }
 
 impl Display for OsmosisTypeURLs {
@@ -19,7 +19,7 @@ impl Display for OsmosisTypeURLs {
             OsmosisTypeURLs::SwapExactAmountIn => {
                 write!(f, "/osmosis.gamm.v1beta1.MsgSwapExactAmountIn")
             }
-            OsmosisTypeURLs::MsgJoinPool => {
+            OsmosisTypeURLs::JoinPool => {
                 write!(f, "/osmosis.gamm.v1beta1.MsgJoinPool")
             }
         }
