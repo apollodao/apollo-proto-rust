@@ -7,6 +7,10 @@ pub enum OsmosisTypeURLs {
     SwapExactAmountIn,
     JoinPool,
     ExitPool,
+    BondLP,
+    UnBondLP,
+    SuperfluidBondLP,
+    SuperfluidUnBondLP,
 }
 
 impl Display for OsmosisTypeURLs {
@@ -25,6 +29,18 @@ impl Display for OsmosisTypeURLs {
             }
             OsmosisTypeURLs::ExitPool => {
                 write!(f, "/osmosis.gamm.v1beta1.MsgExitPool")
+            }
+            OsmosisTypeURLs::BondLP => {
+                write!(f, "/osmosis.lockup.MsgLockTokens")
+            }
+            OsmosisTypeURLs::UnBondLP => {
+                write!(f, "/osmosis.lockup.MsgBeginUnlocking")
+            }
+            OsmosisTypeURLs::SuperfluidBondLP => {
+                write!(f, "/osmosis.superfluid.MsgLockAndSuperfluidDelegate")
+            }
+            OsmosisTypeURLs::SuperfluidUnBondLP => {
+                write!(f, "/osmosis.superfluid.MsgSuperfluidUnbondLock")
             }
         }
     }
