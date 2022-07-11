@@ -18,12 +18,12 @@ pub struct PeriodLock {
     /// Duration is the time needed for a lock to mature after unlocking has
     /// started.
     #[prost(message, optional, tag="3")]
-    pub duration: ::core::option::Option<::prost_types::Duration>,
+    pub duration: ::core::option::Option<super::super::super::google::protobuf::Duration>,
     /// EndTime refers to the time at which the lock would mature and get deleted.
     /// This value is first initialized when an unlock has started for the lock,
     /// end time being block time + duration.
     #[prost(message, optional, tag="4")]
-    pub end_time: ::core::option::Option<::prost_types::Timestamp>,
+    pub end_time: ::core::option::Option<super::super::super::google::protobuf::Timestamp>,
     /// Coins are the tokens locked within the lock, kept in the module account.
     #[prost(message, repeated, tag="5")]
     pub coins: ::prost::alloc::vec::Vec<super::super::super::cosmos::base::v1beta1::Coin>,
@@ -44,12 +44,12 @@ pub struct QueryCondition {
     /// duration. Duration field must not be nil when the lock query type is
     /// `ByLockDuration`.
     #[prost(message, optional, tag="3")]
-    pub duration: ::core::option::Option<::prost_types::Duration>,
+    pub duration: ::core::option::Option<super::super::super::google::protobuf::Duration>,
     /// Timestamp is used by locks started before the specified duration.
     /// Timestamp field must not be nil when the lock query type is `ByLockTime`.
     /// Querying locks with timestamp is currently not implemented.
     #[prost(message, optional, tag="4")]
-    pub timestamp: ::core::option::Option<::prost_types::Timestamp>,
+    pub timestamp: ::core::option::Option<super::super::super::google::protobuf::Timestamp>,
 }
 /// SyntheticLock is creating virtual lockup where new denom is combination of
 /// original denom and synthetic suffix. At the time of synthetic lockup creation
@@ -69,11 +69,11 @@ pub struct SyntheticLock {
     /// used for unbonding synthetic lockups, for active synthetic lockups, this
     /// value is set to uninitialized value
     #[prost(message, optional, tag="3")]
-    pub end_time: ::core::option::Option<::prost_types::Timestamp>,
+    pub end_time: ::core::option::Option<super::super::super::google::protobuf::Timestamp>,
     /// Duration is the duration for a synthetic lock to mature
     /// at the point of unbonding has started.
     #[prost(message, optional, tag="4")]
-    pub duration: ::core::option::Option<::prost_types::Duration>,
+    pub duration: ::core::option::Option<super::super::super::google::protobuf::Duration>,
 }
 /// LockQueryType defines the type of the lock query that can
 /// either be by duration or start time of the lock.
@@ -90,7 +90,7 @@ pub struct MsgLockTokens {
     #[prost(string, tag="1")]
     pub owner: ::prost::alloc::string::String,
     #[prost(message, optional, tag="2")]
-    pub duration: ::core::option::Option<::prost_types::Duration>,
+    pub duration: ::core::option::Option<super::super::super::google::protobuf::Duration>,
     #[prost(message, repeated, tag="3")]
     pub coins: ::prost::alloc::vec::Vec<super::super::super::cosmos::base::v1beta1::Coin>,
 }
@@ -141,7 +141,7 @@ pub struct MsgExtendLockup {
     /// duration to be set. fails if lower than the current duration, or is
     /// unlocking
     #[prost(message, optional, tag="3")]
-    pub duration: ::core::option::Option<::prost_types::Duration>,
+    pub duration: ::core::option::Option<super::super::super::google::protobuf::Duration>,
 }
 #[derive(serde::Serialize, serde::Deserialize)]
 #[derive(Clone, PartialEq, ::prost::Message)]
