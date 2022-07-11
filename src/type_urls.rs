@@ -6,6 +6,7 @@ pub enum OsmosisTypeURLs {
     Burn,
     SwapExactAmountIn,
     JoinPool,
+    ExitPool,
 }
 
 impl Display for OsmosisTypeURLs {
@@ -21,6 +22,9 @@ impl Display for OsmosisTypeURLs {
             }
             OsmosisTypeURLs::JoinPool => {
                 write!(f, "/osmosis.gamm.v1beta1.MsgJoinPool")
+            }
+            OsmosisTypeURLs::ExitPool => {
+                write!(f, "/osmosis.gamm.v1beta1.MsgExitPool")
             }
         }
     }
