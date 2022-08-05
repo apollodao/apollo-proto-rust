@@ -7,6 +7,10 @@ pub enum OsmosisTypeURLs {
     SwapExactAmountIn,
     JoinPool,
     ExitPool,
+    JoinSwapExternAmountIn,
+    JoinSwapShareAmountOut,
+    ExitSwapShareAmountIn,
+    ExitSwapExternAmountOut,
     BondLP,
     UnBondLP,
     SuperfluidBondLP,
@@ -41,6 +45,18 @@ impl Display for OsmosisTypeURLs {
             }
             OsmosisTypeURLs::SuperfluidUnBondLP => {
                 write!(f, "/osmosis.superfluid.MsgSuperfluidUnbondLock")
+            }
+            OsmosisTypeURLs::JoinSwapExternAmountIn => {
+                write!(f, "/osmosis.gamm.v1beta1.MsgJoinSwapExternAmountIn")
+            }
+            OsmosisTypeURLs::JoinSwapShareAmountOut => {
+                write!(f, "/osmosis.gamm.v1beta1.MsgJoinSwapShareAmountOut")
+            }
+            OsmosisTypeURLs::ExitSwapShareAmountIn => {
+                write!(f, "/osmosis.gamm.v1beta1.MsgExitSwapShareAmountIn")
+            }
+            OsmosisTypeURLs::ExitSwapExternAmountOut => {
+                write!(f, "/osmosis.gamm.v1beta1.MsgExitSwapExternAmountOut")
             }
         }
     }
