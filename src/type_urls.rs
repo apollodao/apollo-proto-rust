@@ -19,6 +19,7 @@ pub enum OsmosisTypeURLs {
 
     // Query Msgs
     QueryTotalLiquidity,
+    QueryTotalPoolLiquidity,
 }
 
 impl Display for OsmosisTypeURLs {
@@ -64,6 +65,9 @@ impl Display for OsmosisTypeURLs {
             }
             OsmosisTypeURLs::QueryTotalLiquidity => {
                 write!(f, "/osmosis.gamm.v1beta1.QueryTotalLiquidity")
+            }
+            OsmosisTypeURLs::QueryTotalPoolLiquidity => {
+                write!(f, "/osmosis.gamm.v1beta1.QueryTotalPoolLiquidity")
             }
         }
     }
