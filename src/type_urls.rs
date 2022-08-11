@@ -1,6 +1,7 @@
 use std::fmt::{Display, Formatter};
 
 pub enum OsmosisTypeURLs {
+    // Execute Msgs
     CreateDenom,
     Mint,
     Burn,
@@ -15,6 +16,9 @@ pub enum OsmosisTypeURLs {
     UnBondLP,
     SuperfluidBondLP,
     SuperfluidUnBondLP,
+
+    // Query Msgs
+    QueryTotalLiquidity,
 }
 
 impl Display for OsmosisTypeURLs {
@@ -57,6 +61,9 @@ impl Display for OsmosisTypeURLs {
             }
             OsmosisTypeURLs::ExitSwapExternAmountOut => {
                 write!(f, "/osmosis.gamm.v1beta1.MsgExitSwapExternAmountOut")
+            }
+            OsmosisTypeURLs::QueryTotalLiquidity => {
+                write!(f, "/osmosis.gamm.v1beta1.QueryTotalLiquidity")
             }
         }
     }

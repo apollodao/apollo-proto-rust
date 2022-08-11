@@ -1,2 +1,2 @@
-pub mod google_protobuf;
+mod google_protobuf;
 pub use google_protobuf::*;

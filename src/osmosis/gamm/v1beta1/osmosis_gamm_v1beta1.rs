@@ -172,3 +172,152 @@ pub struct MsgExitSwapExternAmountOutResponse {
     #[prost(string, tag="1")]
     pub share_in_amount: ::prost::alloc::string::String,
 }
+///=============================== Pool
+#[derive(serde::Serialize, serde::Deserialize)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct QueryPoolRequest {
+    #[prost(uint64, tag="1")]
+    pub pool_id: u64,
+}
+#[derive(serde::Serialize, serde::Deserialize)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct QueryPoolResponse {
+    #[prost(message, optional, tag="1")]
+    pub pool: ::core::option::Option<super::super::super::super::google::protobuf::Any>,
+}
+///=============================== Pools
+#[derive(serde::Serialize, serde::Deserialize)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct QueryPoolsRequest {
+    /// pagination defines an optional pagination for the request.
+    #[prost(message, optional, tag="2")]
+    pub pagination: ::core::option::Option<super::super::super::super::cosmos::base::query::v1beta1::PageRequest>,
+}
+#[derive(serde::Serialize, serde::Deserialize)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct QueryPoolsResponse {
+    #[prost(message, repeated, tag="1")]
+    pub pools: ::prost::alloc::vec::Vec<super::super::super::super::google::protobuf::Any>,
+    /// pagination defines the pagination in the response.
+    #[prost(message, optional, tag="2")]
+    pub pagination: ::core::option::Option<super::super::super::super::cosmos::base::query::v1beta1::PageResponse>,
+}
+///=============================== NumPools
+#[derive(serde::Serialize, serde::Deserialize)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct QueryNumPoolsRequest {
+}
+#[derive(serde::Serialize, serde::Deserialize)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct QueryNumPoolsResponse {
+    #[prost(uint64, tag="1")]
+    pub num_pools: u64,
+}
+///=============================== PoolParams
+#[derive(serde::Serialize, serde::Deserialize)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct QueryPoolParamsRequest {
+    #[prost(uint64, tag="1")]
+    pub pool_id: u64,
+}
+#[derive(serde::Serialize, serde::Deserialize)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct QueryPoolParamsResponse {
+    #[prost(message, optional, tag="1")]
+    pub params: ::core::option::Option<super::super::super::super::google::protobuf::Any>,
+}
+///=============================== PoolLiquidity
+#[derive(serde::Serialize, serde::Deserialize)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct QueryTotalPoolLiquidityRequest {
+    #[prost(uint64, tag="1")]
+    pub pool_id: u64,
+}
+#[derive(serde::Serialize, serde::Deserialize)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct QueryTotalPoolLiquidityResponse {
+    #[prost(message, repeated, tag="1")]
+    pub liquidity: ::prost::alloc::vec::Vec<super::super::super::super::cosmos::base::v1beta1::Coin>,
+}
+///=============================== TotalShares
+#[derive(serde::Serialize, serde::Deserialize)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct QueryTotalSharesRequest {
+    #[prost(uint64, tag="1")]
+    pub pool_id: u64,
+}
+#[derive(serde::Serialize, serde::Deserialize)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct QueryTotalSharesResponse {
+    #[prost(message, optional, tag="1")]
+    pub total_shares: ::core::option::Option<super::super::super::super::cosmos::base::v1beta1::Coin>,
+}
+/// QuerySpotPriceRequest defines the gRPC request structure for a SpotPrice
+/// query.
+#[derive(serde::Serialize, serde::Deserialize)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct QuerySpotPriceRequest {
+    #[prost(uint64, tag="1")]
+    pub pool_id: u64,
+    #[prost(string, tag="2")]
+    pub base_asset_denom: ::prost::alloc::string::String,
+    #[prost(string, tag="3")]
+    pub quote_asset_denom: ::prost::alloc::string::String,
+}
+/// QuerySpotPriceResponse defines the gRPC response structure for a SpotPrice
+/// query.
+#[derive(serde::Serialize, serde::Deserialize)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct QuerySpotPriceResponse {
+    /// String of the Dec. Ex) 10.203uatom
+    #[prost(string, tag="1")]
+    pub spot_price: ::prost::alloc::string::String,
+}
+///=============================== EstimateSwapExactAmountIn
+#[derive(serde::Serialize, serde::Deserialize)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct QuerySwapExactAmountInRequest {
+    #[prost(string, tag="1")]
+    pub sender: ::prost::alloc::string::String,
+    #[prost(uint64, tag="2")]
+    pub pool_id: u64,
+    #[prost(string, tag="3")]
+    pub token_in: ::prost::alloc::string::String,
+    #[prost(message, repeated, tag="4")]
+    pub routes: ::prost::alloc::vec::Vec<SwapAmountInRoute>,
+}
+#[derive(serde::Serialize, serde::Deserialize)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct QuerySwapExactAmountInResponse {
+    #[prost(string, tag="1")]
+    pub token_out_amount: ::prost::alloc::string::String,
+}
+///=============================== EstimateSwapExactAmountOut
+#[derive(serde::Serialize, serde::Deserialize)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct QuerySwapExactAmountOutRequest {
+    #[prost(string, tag="1")]
+    pub sender: ::prost::alloc::string::String,
+    #[prost(uint64, tag="2")]
+    pub pool_id: u64,
+    #[prost(message, repeated, tag="3")]
+    pub routes: ::prost::alloc::vec::Vec<SwapAmountOutRoute>,
+    #[prost(string, tag="4")]
+    pub token_out: ::prost::alloc::string::String,
+}
+#[derive(serde::Serialize, serde::Deserialize)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct QuerySwapExactAmountOutResponse {
+    #[prost(string, tag="1")]
+    pub token_in_amount: ::prost::alloc::string::String,
+}
+#[derive(serde::Serialize, serde::Deserialize)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct QueryTotalLiquidityRequest {
+}
+#[derive(serde::Serialize, serde::Deserialize)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct QueryTotalLiquidityResponse {
+    #[prost(message, repeated, tag="1")]
+    pub liquidity: ::prost::alloc::vec::Vec<super::super::super::super::cosmos::base::v1beta1::Coin>,
+}
