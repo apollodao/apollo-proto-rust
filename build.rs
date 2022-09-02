@@ -10,6 +10,7 @@ fn main() -> Result<()> {
     //             "src/osmosis/gamm/v1beta1/query.proto",
     //             "src/osmosis/tokenfactory/v1beta1/tx.proto",
     //             "src/osmosis/lockup/tx.proto",
+    //             "src/osmosis/lockup/query.proto",
     //             "src/osmosis/superfluid/tx.proto",
     //         ],
     //         &["src/"], // NOTE: must have the slash in the end, i.e. `src/` not `src`
