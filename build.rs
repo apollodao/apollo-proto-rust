@@ -8,6 +8,8 @@ fn main() -> Result<()> {
     //         &[
     //             "src/osmosis/gamm/v1beta1/tx.proto",
     //             "src/osmosis/gamm/v1beta1/query.proto",
+    //             "src/osmosis/gamm/poolmodels/balancer/balancerPool.proto",
+    //             // "src/osmosis/gamm/poolmodels/stableswap/stableswap_pool.proto",
     //             "src/osmosis/tokenfactory/v1beta1/tx.proto",
     //             "src/osmosis/lockup/tx.proto",
     //             "src/osmosis/lockup/query.proto",

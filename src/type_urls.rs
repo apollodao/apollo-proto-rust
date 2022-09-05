@@ -20,6 +20,7 @@ pub enum OsmosisTypeURLs {
     // Query Msgs
     QueryTotalLiquidity,
     QueryTotalPoolLiquidity,
+    QueryPoolParams { pool_id: u64 },
 }
 
 impl Display for OsmosisTypeURLs {
@@ -68,6 +69,9 @@ impl Display for OsmosisTypeURLs {
             }
             OsmosisTypeURLs::QueryTotalPoolLiquidity => {
                 write!(f, "/osmosis.gamm.v1beta1.QueryTotalPoolLiquidity")
+            }
+            OsmosisTypeURLs::QueryPoolParams { pool_id } => {
+                write!(f, "/osmosis/gamm/v1beta1/pools/{pool_id}/params")
             }
         }
     }
