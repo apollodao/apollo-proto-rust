@@ -1,5 +1,7 @@
 use std::fmt::{Display, Formatter};
 
+use cosmwasm_std::Addr;
+
 pub enum OsmosisTypeURLs {
     // Execute Msgs
     CreateDenom,
@@ -21,6 +23,7 @@ pub enum OsmosisTypeURLs {
     QueryTotalLiquidity,
     QueryTotalPoolLiquidity,
     QueryPoolParams { pool_id: u64 },
+    QueryAccountLockedLongerDurationNotUnlockingOnly { owner: String },
 }
 
 impl Display for OsmosisTypeURLs {
@@ -73,6 +76,10 @@ impl Display for OsmosisTypeURLs {
             OsmosisTypeURLs::QueryPoolParams { pool_id } => {
                 write!(f, "/osmosis/gamm/v1beta1/pools/{pool_id}/params")
             }
+            OsmosisTypeURLs::QueryAccountLockedLongerDurationNotUnlockingOnly { owner } => write!(
+                f,
+                "/osmosis/lockup/v1beta1/account_locked_longer_duration_not_unlocking_only/{owner}"
+            ),
         }
     }
 }
