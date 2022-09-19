@@ -1,13 +1,13 @@
 [package]
 name = "apollo-proto-rust"
-version = "0.1.0"
+version = "0.2.0"
 edition = "2021"
 
 [dependencies]
-cosmwasm-std = "1.0.0"
+cosmwasm-std = "1.1.0"
 prost = "0.10"
 prost-types = "0.10"
-serde = "1.0.138"
+serde = { version = "1.0.103", default-features = false, features = ["derive"] }
 
 #[build-dependencies]
 #prost-build = { version = "0.10" }
