@@ -24,6 +24,7 @@ pub enum OsmosisTypeURLs {
     QueryTotalPoolLiquidity,
     QueryPoolParams { pool_id: u64 },
     QueryAccountLockedLongerDurationNotUnlockingOnly { owner: String },
+    QuerySwapExactAmountIn,
 }
 
 impl Display for OsmosisTypeURLs {
@@ -80,6 +81,9 @@ impl Display for OsmosisTypeURLs {
                 f,
                 "/osmosis/lockup/v1beta1/account_locked_longer_duration_not_unlocking_only/{owner}"
             ),
+            OsmosisTypeURLs::QuerySwapExactAmountIn => {
+                write!(f, "/osmosis.gamm.v1beta1.QuerySwapExactAmountIn")
+            }
         }
     }
 }
