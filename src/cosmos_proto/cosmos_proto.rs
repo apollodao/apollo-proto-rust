@@ -50,3 +50,16 @@ pub enum ScalarType {
     String = 1,
     Bytes = 2,
 }
+impl ScalarType {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            ScalarType::Unspecified => "SCALAR_TYPE_UNSPECIFIED",
+            ScalarType::String => "SCALAR_TYPE_STRING",
+            ScalarType::Bytes => "SCALAR_TYPE_BYTES",
+        }
+    }
+}

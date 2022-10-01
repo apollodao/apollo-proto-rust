@@ -15,6 +15,10 @@ pub struct MsgJoinPool {
 #[derive(serde::Serialize, serde::Deserialize)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct MsgJoinPoolResponse {
+    #[prost(string, tag="1")]
+    pub share_out_amount: ::prost::alloc::string::String,
+    #[prost(message, repeated, tag="2")]
+    pub token_in: ::prost::alloc::vec::Vec<super::super::super::super::cosmos::base::v1beta1::Coin>,
 }
 /// ===================== MsgExitPool
 #[derive(serde::Serialize, serde::Deserialize)]
@@ -32,6 +36,8 @@ pub struct MsgExitPool {
 #[derive(serde::Serialize, serde::Deserialize)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct MsgExitPoolResponse {
+    #[prost(message, repeated, tag="1")]
+    pub token_out: ::prost::alloc::vec::Vec<super::super::super::super::cosmos::base::v1beta1::Coin>,
 }
 /// ===================== MsgSwapExactAmountIn
 #[derive(serde::Serialize, serde::Deserialize)]
@@ -99,8 +105,8 @@ pub struct MsgJoinSwapExternAmountIn {
     #[prost(message, optional, tag="3")]
     pub token_in: ::core::option::Option<super::super::super::super::cosmos::base::v1beta1::Coin>,
     /// repeated cosmos.base.v1beta1.Coin tokensIn = 5 [
-    ///   (gogoproto.moretags) = "yaml:\"tokens_in\"",
-    ///   (gogoproto.nullable) = false
+    ///    (gogoproto.moretags) = "yaml:\"tokens_in\"",
+    ///    (gogoproto.nullable) = false
     /// ];
     #[prost(string, tag="4")]
     pub share_out_min_amount: ::prost::alloc::string::String,
@@ -172,7 +178,7 @@ pub struct MsgExitSwapExternAmountOutResponse {
     #[prost(string, tag="1")]
     pub share_in_amount: ::prost::alloc::string::String,
 }
-///=============================== Pool
+/// =============================== Pool
 #[derive(serde::Serialize, serde::Deserialize)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct QueryPoolRequest {
@@ -185,7 +191,7 @@ pub struct QueryPoolResponse {
     #[prost(message, optional, tag="1")]
     pub pool: ::core::option::Option<super::super::super::super::google::protobuf::Any>,
 }
-///=============================== Pools
+/// =============================== Pools
 #[derive(serde::Serialize, serde::Deserialize)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct QueryPoolsRequest {
@@ -202,7 +208,7 @@ pub struct QueryPoolsResponse {
     #[prost(message, optional, tag="2")]
     pub pagination: ::core::option::Option<super::super::super::super::cosmos::base::query::v1beta1::PageResponse>,
 }
-///=============================== NumPools
+/// =============================== NumPools
 #[derive(serde::Serialize, serde::Deserialize)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct QueryNumPoolsRequest {
@@ -213,7 +219,20 @@ pub struct QueryNumPoolsResponse {
     #[prost(uint64, tag="1")]
     pub num_pools: u64,
 }
-///=============================== PoolParams
+/// =============================== PoolType
+#[derive(serde::Serialize, serde::Deserialize)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct QueryPoolTypeRequest {
+    #[prost(uint64, tag="1")]
+    pub pool_id: u64,
+}
+#[derive(serde::Serialize, serde::Deserialize)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct QueryPoolTypeResponse {
+    #[prost(string, tag="1")]
+    pub pool_type: ::prost::alloc::string::String,
+}
+/// =============================== PoolParams
 #[derive(serde::Serialize, serde::Deserialize)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct QueryPoolParamsRequest {
@@ -226,7 +245,7 @@ pub struct QueryPoolParamsResponse {
     #[prost(message, optional, tag="1")]
     pub params: ::core::option::Option<super::super::super::super::google::protobuf::Any>,
 }
-///=============================== PoolLiquidity
+/// =============================== PoolLiquidity
 #[derive(serde::Serialize, serde::Deserialize)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct QueryTotalPoolLiquidityRequest {
@@ -239,7 +258,7 @@ pub struct QueryTotalPoolLiquidityResponse {
     #[prost(message, repeated, tag="1")]
     pub liquidity: ::prost::alloc::vec::Vec<super::super::super::super::cosmos::base::v1beta1::Coin>,
 }
-///=============================== TotalShares
+/// =============================== TotalShares
 #[derive(serde::Serialize, serde::Deserialize)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct QueryTotalSharesRequest {
@@ -273,7 +292,7 @@ pub struct QuerySpotPriceResponse {
     #[prost(string, tag="1")]
     pub spot_price: ::prost::alloc::string::String,
 }
-///=============================== EstimateSwapExactAmountIn
+/// =============================== EstimateSwapExactAmountIn
 #[derive(serde::Serialize, serde::Deserialize)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct QuerySwapExactAmountInRequest {
@@ -292,7 +311,7 @@ pub struct QuerySwapExactAmountInResponse {
     #[prost(string, tag="1")]
     pub token_out_amount: ::prost::alloc::string::String,
 }
-///=============================== EstimateSwapExactAmountOut
+/// =============================== EstimateSwapExactAmountOut
 #[derive(serde::Serialize, serde::Deserialize)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct QuerySwapExactAmountOutRequest {
@@ -327,11 +346,11 @@ pub struct QueryTotalLiquidityResponse {
 /// the two weights, but more types may be added in the future.
 /// When these parameters are set, the weight w(t) for pool time `t` is the
 /// following:
-///   t <= start_time: w(t) = initial_pool_weights
-///   start_time < t <= start_time + duration:
-///     w(t) = initial_pool_weights + (t - start_time) *
-///       (target_pool_weights - initial_pool_weights) / (duration)
-///   t > start_time + duration: w(t) = target_pool_weights
+///    t <= start_time: w(t) = initial_pool_weights
+///    start_time < t <= start_time + duration:
+///      w(t) = initial_pool_weights + (t - start_time) *
+///        (target_pool_weights - initial_pool_weights) / (duration)
+///    t > start_time + duration: w(t) = target_pool_weights
 #[derive(serde::Serialize, serde::Deserialize)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct SmoothWeightChangeParams {
@@ -359,8 +378,8 @@ pub struct SmoothWeightChangeParams {
     /// (target_pool_weights - initial_pool_weights) / (duration)
     /// TODO: Work out precision, and decide if this is good to add
     /// repeated PoolAsset poolWeightSlope = 5 [
-    ///  (gogoproto.moretags) = "yaml:\"pool_weight_slope\"",
-    ///  (gogoproto.nullable) = false
+    ///   (gogoproto.moretags) = "yaml:\"pool_weight_slope\"",
+    ///   (gogoproto.nullable) = false
     /// ];
     #[prost(message, repeated, tag="4")]
     pub target_pool_weights: ::prost::alloc::vec::Vec<PoolAsset>,

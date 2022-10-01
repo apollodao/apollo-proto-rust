@@ -84,6 +84,18 @@ pub enum LockQueryType {
     ByDuration = 0,
     ByTime = 1,
 }
+impl LockQueryType {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            LockQueryType::ByDuration => "ByDuration",
+            LockQueryType::ByTime => "ByTime",
+        }
+    }
+}
 #[derive(serde::Serialize, serde::Deserialize)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct MsgLockTokens {

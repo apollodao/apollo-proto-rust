@@ -1,7 +1,5 @@
 use std::fmt::{Display, Formatter};
 
-use cosmwasm_std::Addr;
-
 pub enum OsmosisTypeURLs {
     // Execute Msgs
     CreateDenom,
@@ -20,6 +18,7 @@ pub enum OsmosisTypeURLs {
     SuperfluidUnBondLP,
 
     // Query Msgs
+    QueryPool,
     QueryTotalLiquidity,
     QueryTotalPoolLiquidity,
     QueryPoolParams { pool_id: u64 },
@@ -67,11 +66,16 @@ impl Display for OsmosisTypeURLs {
             OsmosisTypeURLs::ExitSwapExternAmountOut => {
                 write!(f, "/osmosis.gamm.v1beta1.MsgExitSwapExternAmountOut")
             }
+
+            // Queries
+            OsmosisTypeURLs::QueryPool => {
+                write!(f, "/osmosis.gamm.v1beta1.Query/Pool")
+            }
             OsmosisTypeURLs::QueryTotalLiquidity => {
-                write!(f, "/osmosis.gamm.v1beta1.QueryTotalLiquidity")
+                write!(f, "/osmosis.gamm.v1beta1.Query/TotalLiquidity")
             }
             OsmosisTypeURLs::QueryTotalPoolLiquidity => {
-                write!(f, "/osmosis.gamm.v1beta1.QueryTotalPoolLiquidity")
+                write!(f, "/osmosis.gamm.v1beta1.Query/TotalPoolLiquidity")
             }
             OsmosisTypeURLs::QueryPoolParams { pool_id } => {
                 write!(f, "/osmosis/gamm/v1beta1/pools/{pool_id}/params")
