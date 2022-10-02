@@ -15,6 +15,7 @@ dependencies = [
  "cosmwasm-std",
  "prost",
  "prost-types",
+ "schemars",
  "serde",
 ]
 
