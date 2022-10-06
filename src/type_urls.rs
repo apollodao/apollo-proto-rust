@@ -21,7 +21,7 @@ pub enum OsmosisTypeURLs {
     QueryPool,
     QueryTotalLiquidity,
     QueryTotalPoolLiquidity,
-    QueryPoolParams { pool_id: u64 },
+    QueryPoolParams,
     QueryAccountLockedLongerDurationNotUnlockingOnly { owner: String },
 }
 
@@ -77,8 +77,8 @@ impl Display for OsmosisTypeURLs {
             OsmosisTypeURLs::QueryTotalPoolLiquidity => {
                 write!(f, "/osmosis.gamm.v1beta1.Query/TotalPoolLiquidity")
             }
-            OsmosisTypeURLs::QueryPoolParams { pool_id } => {
-                write!(f, "/osmosis/gamm/v1beta1/pools/{pool_id}/params")
+            OsmosisTypeURLs::QueryPoolParams => {
+                write!(f, "/osmosis.gamm.v1beta1.Query/PoolParams")
             }
             OsmosisTypeURLs::QueryAccountLockedLongerDurationNotUnlockingOnly { owner } => write!(
                 f,
