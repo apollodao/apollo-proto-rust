@@ -161,6 +161,25 @@ pub struct MsgExtendLockupResponse {
     #[prost(bool, tag="1")]
     pub success: bool,
 }
+/// MsgForceUnlock unlocks locks immediately for
+/// addresses registered via governance.
+#[derive(serde::Serialize, serde::Deserialize)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct MsgForceUnlock {
+    #[prost(string, tag="1")]
+    pub owner: ::prost::alloc::string::String,
+    #[prost(uint64, tag="2")]
+    pub id: u64,
+    /// Amount of unlocking coins. Unlock all if not set.
+    #[prost(message, repeated, tag="3")]
+    pub coins: ::prost::alloc::vec::Vec<super::super::super::cosmos::base::v1beta1::Coin>,
+}
+#[derive(serde::Serialize, serde::Deserialize)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct MsgForceUnlockResponse {
+    #[prost(bool, tag="1")]
+    pub success: bool,
+}
 #[derive(serde::Serialize, serde::Deserialize)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ModuleBalanceRequest {
@@ -370,4 +389,10 @@ pub struct AccountLockedLongerDurationDenomRequest {
 pub struct AccountLockedLongerDurationDenomResponse {
     #[prost(message, repeated, tag="1")]
     pub locks: ::prost::alloc::vec::Vec<PeriodLock>,
+}
+#[derive(serde::Serialize, serde::Deserialize)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct Params {
+    #[prost(string, repeated, tag="1")]
+    pub force_unlock_allowed_addresses: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
 }
