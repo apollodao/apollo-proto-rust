@@ -232,6 +232,40 @@ pub struct QueryPoolTypeResponse {
     #[prost(string, tag="1")]
     pub pool_type: ::prost::alloc::string::String,
 }
+/// =============================== CalcJoinPoolShares
+#[derive(serde::Serialize, serde::Deserialize)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct QueryCalcJoinPoolSharesRequest {
+    #[prost(uint64, tag="1")]
+    pub pool_id: u64,
+    #[prost(message, repeated, tag="2")]
+    pub tokens_in: ::prost::alloc::vec::Vec<super::super::super::super::cosmos::base::v1beta1::Coin>,
+}
+#[derive(serde::Serialize, serde::Deserialize)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct QueryCalcJoinPoolSharesResponse {
+    #[prost(string, tag="1")]
+    pub share_out_amount: ::prost::alloc::string::String,
+    #[prost(message, repeated, tag="2")]
+    pub tokens_out: ::prost::alloc::vec::Vec<super::super::super::super::cosmos::base::v1beta1::Coin>,
+}
+/// =============================== QueryCalcExitPoolCoinsFromSharesRequest
+#[derive(serde::Serialize, serde::Deserialize)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct QueryCalcExitPoolCoinsFromSharesRequest {
+    #[prost(uint64, tag="1")]
+    pub pool_id: u64,
+    #[prost(string, tag="2")]
+    pub token_out_denom: ::prost::alloc::string::String,
+    #[prost(string, tag="3")]
+    pub share_in_amount: ::prost::alloc::string::String,
+}
+#[derive(serde::Serialize, serde::Deserialize)]
+#[derive(Clone, PartialEq, ::prost::Message)]
+pub struct QueryCalcExitPoolCoinsFromSharesResponse {
+    #[prost(uint64, tag="1")]
+    pub token_out_amount: u64,
+}
 /// =============================== PoolParams
 #[derive(serde::Serialize, serde::Deserialize)]
 #[derive(Clone, PartialEq, ::prost::Message)]
