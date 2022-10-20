@@ -12,11 +12,11 @@ pub enum OsmosisTypeURLs {
     JoinSwapShareAmountOut,
     ExitSwapShareAmountIn,
     ExitSwapExternAmountOut,
-    BondLP,
-    UnBondLP,
+    LockTokens,
+    BeginUnlocking,
     ForceUnlock,
-    SuperfluidBondLP,
-    SuperfluidUnBondLP,
+    LockAndSuperfluidDelegate,
+    SuperfluidUnbondLock,
 
     // Query Msgs
     QueryPool,
@@ -44,19 +44,19 @@ impl Display for OsmosisTypeURLs {
             OsmosisTypeURLs::ExitPool => {
                 write!(f, "/osmosis.gamm.v1beta1.MsgExitPool")
             }
-            OsmosisTypeURLs::BondLP => {
+            OsmosisTypeURLs::LockTokens => {
                 write!(f, "/osmosis.lockup.MsgLockTokens")
             }
-            OsmosisTypeURLs::UnBondLP => {
+            OsmosisTypeURLs::BeginUnlocking => {
                 write!(f, "/osmosis.lockup.MsgBeginUnlocking")
             }
             OsmosisTypeURLs::ForceUnlock => {
                 write!(f, "/osmosis.lockup.MsgForceUnlock")
             }
-            OsmosisTypeURLs::SuperfluidBondLP => {
+            OsmosisTypeURLs::LockAndSuperfluidDelegate => {
                 write!(f, "/osmosis.superfluid.MsgLockAndSuperfluidDelegate")
             }
-            OsmosisTypeURLs::SuperfluidUnBondLP => {
+            OsmosisTypeURLs::SuperfluidUnbondLock => {
                 write!(f, "/osmosis.superfluid.MsgSuperfluidUnbondLock")
             }
             OsmosisTypeURLs::JoinSwapExternAmountIn => {
