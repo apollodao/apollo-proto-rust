@@ -14,6 +14,7 @@ pub enum OsmosisTypeURLs {
     ExitSwapExternAmountOut,
     BondLP,
     UnBondLP,
+    ForceUnlock,
     SuperfluidBondLP,
     SuperfluidUnBondLP,
 
@@ -48,6 +49,9 @@ impl Display for OsmosisTypeURLs {
             }
             OsmosisTypeURLs::UnBondLP => {
                 write!(f, "/osmosis.lockup.MsgBeginUnlocking")
+            }
+            OsmosisTypeURLs::ForceUnlock => {
+                write!(f, "/osmosis.lockup.MsgForceUnlock")
             }
             OsmosisTypeURLs::SuperfluidBondLP => {
                 write!(f, "/osmosis.superfluid.MsgLockAndSuperfluidDelegate")
