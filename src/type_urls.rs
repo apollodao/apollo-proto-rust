@@ -95,3 +95,22 @@ impl Display for OsmosisTypeURLs {
         }
     }
 }
+
+pub enum InjectiveTypeURLs {
+    // Execute Msgs
+    InstantBinaryOptionsMarketLaunch,
+    // Query Msgs
+}
+
+impl Display for InjectiveTypeURLs {
+    fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
+        match self {
+            InjectiveTypeURLs::InstantBinaryOptionsMarketLaunch => {
+                write!(
+                    f,
+                    "/injective.exchange.v1beta1.MsgInstantBinaryOptionsMarketLaunch"
+                )
+            }
+        }
+    }
+}

@@ -390,9 +390,3 @@ pub struct AccountLockedLongerDurationDenomResponse {
     #[prost(message, repeated, tag="1")]
     pub locks: ::prost::alloc::vec::Vec<PeriodLock>,
 }
-#[derive(serde::Serialize, serde::Deserialize)]
-#[derive(Clone, PartialEq, ::prost::Message)]
-pub struct Params {
-    #[prost(string, repeated, tag="1")]
-    pub force_unlock_allowed_addresses: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-}

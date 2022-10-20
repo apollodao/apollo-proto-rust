@@ -15,6 +15,9 @@ fn main() -> Result<()> {
     //             "src/osmosis/lockup/tx.proto",
     //             "src/osmosis/lockup/query.proto",
     //             "src/osmosis/superfluid/tx.proto",
+    //             // injective,
+    //             "src/injective/exchange/v1beta1/tx.proto",
+    //             "src/injective/exchange/v1beta1/query.proto",
     //             // cosmos
     //             "src/cosmos/auth/v1beta1/auth.proto",
     //             "src/cosmos/base/v1beta1/coin.proto",
