@@ -19,11 +19,15 @@ fn main() -> Result<()> {
     //             "src/injective/exchange/v1beta1/tx.proto",
     //             "src/injective/exchange/v1beta1/query.proto",
     //             // cosmos
-    //             "src/cosmos/auth/v1beta1/auth.proto",
-    //             "src/cosmos/base/v1beta1/coin.proto",
-    //             "src/cosmos/base/query/v1beta1/pagination.proto",
+    //             // "src/cosmos/auth/v1beta1/auth.proto",
+    //             // "src/cosmos/base/v1beta1/coin.proto",
+    //             // "src/cosmos/base/query/v1beta1/pagination.proto",
+    //             // "src/cosmos/bank/v1beta1/bank.proto",
+    //             // "src/cosmos/bank/v1beta1/query.proto",
+    //             // "src/cosmos/msg/v1/msg.proto",
+    //             // "src/cosmos/query/v1/query.proto",
     //             // google
-    //             "src/google/protobuf/any.proto",
+    //             // "src/google/protobuf/any.proto",
     //         ],
     //         &["src/"], // NOTE: must have the slash in the end, i.e. `src/` not `src`
     //     )?;
