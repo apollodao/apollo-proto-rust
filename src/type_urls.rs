@@ -25,6 +25,7 @@ pub enum OsmosisTypeURLs {
     QueryPoolParams,
     QueryAccountLockedLongerDurationNotUnlockingOnly,
     QuerySwapExactAmountIn,
+    QuerySupplyOf,
 }
 
 impl Display for OsmosisTypeURLs {
@@ -91,6 +92,9 @@ impl Display for OsmosisTypeURLs {
             ),
             OsmosisTypeURLs::QuerySwapExactAmountIn => {
                 write!(f, "/osmosis.gamm.v1beta1.Query/EstimateSwapExactAmountIn")
+            }
+            OsmosisTypeURLs::QuerySupplyOf => {
+                write!(f, "/cosmos.bank.v1beta1.Query/SupplyOf")
             }
         }
     }
