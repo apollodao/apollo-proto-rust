@@ -26,6 +26,8 @@ pub enum OsmosisTypeURLs {
     QueryAccountLockedLongerDurationNotUnlockingOnly,
     QuerySwapExactAmountIn,
     QuerySupplyOf,
+    QueryCalcJoinPoolShares,
+    QueryCalcExitPoolCoinsFromShares,
 }
 
 impl Display for OsmosisTypeURLs {
@@ -95,6 +97,12 @@ impl Display for OsmosisTypeURLs {
             }
             OsmosisTypeURLs::QuerySupplyOf => {
                 write!(f, "/cosmos.bank.v1beta1.Query/SupplyOf")
+            }
+            OsmosisTypeURLs::QueryCalcJoinPoolShares => {
+                write!(f, "/osmosis.gamm.v1beta1.Query/CalcJoinPoolShares")
+            }
+            OsmosisTypeURLs::QueryCalcExitPoolCoinsFromShares => {
+                write!(f, "/osmosis.gamm.v1beta1.Query/CalcExitPoolCoinsFromShares")
             }
         }
     }
