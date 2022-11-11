@@ -2,17 +2,17 @@
 #[derive(serde::Serialize, serde::Deserialize)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct Params {
-    #[prost(string, tag="1")]
+    #[prost(string, tag = "1")]
     pub community_tax: ::prost::alloc::string::String,
     /// The base_proposer_reward and bonus_proposer_reward fields are deprecated
     /// and are no longer used in the x/distribution module's reward mechanism.
     #[deprecated]
-    #[prost(string, tag="2")]
+    #[prost(string, tag = "2")]
     pub base_proposer_reward: ::prost::alloc::string::String,
     #[deprecated]
-    #[prost(string, tag="3")]
+    #[prost(string, tag = "3")]
     pub bonus_proposer_reward: ::prost::alloc::string::String,
-    #[prost(bool, tag="4")]
+    #[prost(bool, tag = "4")]
     pub withdraw_addr_enabled: bool,
 }
 /// ValidatorHistoricalRewards represents historical rewards for a validator.
@@ -30,9 +30,11 @@ pub struct Params {
 #[derive(serde::Serialize, serde::Deserialize)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ValidatorHistoricalRewards {
-    #[prost(message, repeated, tag="1")]
-    pub cumulative_reward_ratio: ::prost::alloc::vec::Vec<super::super::super::base::v1beta1::DecCoin>,
-    #[prost(uint32, tag="2")]
+    #[prost(message, repeated, tag = "1")]
+    pub cumulative_reward_ratio: ::prost::alloc::vec::Vec<
+        super::super::super::base::v1beta1::DecCoin,
+    >,
+    #[prost(uint32, tag = "2")]
     pub reference_count: u32,
 }
 /// ValidatorCurrentRewards represents current rewards and current
@@ -41,9 +43,9 @@ pub struct ValidatorHistoricalRewards {
 #[derive(serde::Serialize, serde::Deserialize)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ValidatorCurrentRewards {
-    #[prost(message, repeated, tag="1")]
+    #[prost(message, repeated, tag = "1")]
     pub rewards: ::prost::alloc::vec::Vec<super::super::super::base::v1beta1::DecCoin>,
-    #[prost(uint64, tag="2")]
+    #[prost(uint64, tag = "2")]
     pub period: u64,
 }
 /// ValidatorAccumulatedCommission represents accumulated commission
@@ -51,7 +53,7 @@ pub struct ValidatorCurrentRewards {
 #[derive(serde::Serialize, serde::Deserialize)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ValidatorAccumulatedCommission {
-    #[prost(message, repeated, tag="1")]
+    #[prost(message, repeated, tag = "1")]
     pub commission: ::prost::alloc::vec::Vec<super::super::super::base::v1beta1::DecCoin>,
 }
 /// ValidatorOutstandingRewards represents outstanding (un-withdrawn) rewards
@@ -59,7 +61,7 @@ pub struct ValidatorAccumulatedCommission {
 #[derive(serde::Serialize, serde::Deserialize)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ValidatorOutstandingRewards {
-    #[prost(message, repeated, tag="1")]
+    #[prost(message, repeated, tag = "1")]
     pub rewards: ::prost::alloc::vec::Vec<super::super::super::base::v1beta1::DecCoin>,
 }
 /// ValidatorSlashEvent represents a validator slash event.
@@ -69,23 +71,23 @@ pub struct ValidatorOutstandingRewards {
 #[derive(serde::Serialize, serde::Deserialize)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ValidatorSlashEvent {
-    #[prost(uint64, tag="1")]
+    #[prost(uint64, tag = "1")]
     pub validator_period: u64,
-    #[prost(string, tag="2")]
+    #[prost(string, tag = "2")]
     pub fraction: ::prost::alloc::string::String,
 }
 /// ValidatorSlashEvents is a collection of ValidatorSlashEvent messages.
 #[derive(serde::Serialize, serde::Deserialize)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct ValidatorSlashEvents {
-    #[prost(message, repeated, tag="1")]
+    #[prost(message, repeated, tag = "1")]
     pub validator_slash_events: ::prost::alloc::vec::Vec<ValidatorSlashEvent>,
 }
 /// FeePool is the global fee pool for distribution.
 #[derive(serde::Serialize, serde::Deserialize)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct FeePool {
-    #[prost(message, repeated, tag="1")]
+    #[prost(message, repeated, tag = "1")]
     pub community_pool: ::prost::alloc::vec::Vec<super::super::super::base::v1beta1::DecCoin>,
 }
 /// CommunityPoolSpendProposal details a proposal for use of community funds,
@@ -99,13 +101,13 @@ pub struct FeePool {
 #[derive(serde::Serialize, serde::Deserialize)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct CommunityPoolSpendProposal {
-    #[prost(string, tag="1")]
+    #[prost(string, tag = "1")]
     pub title: ::prost::alloc::string::String,
-    #[prost(string, tag="2")]
+    #[prost(string, tag = "2")]
     pub description: ::prost::alloc::string::String,
-    #[prost(string, tag="3")]
+    #[prost(string, tag = "3")]
     pub recipient: ::prost::alloc::string::String,
-    #[prost(message, repeated, tag="4")]
+    #[prost(message, repeated, tag = "4")]
     pub amount: ::prost::alloc::vec::Vec<super::super::super::base::v1beta1::Coin>,
 }
 /// DelegatorStartingInfo represents the starting info for a delegator reward
@@ -117,11 +119,11 @@ pub struct CommunityPoolSpendProposal {
 #[derive(serde::Serialize, serde::Deserialize)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct DelegatorStartingInfo {
-    #[prost(uint64, tag="1")]
+    #[prost(uint64, tag = "1")]
     pub previous_period: u64,
-    #[prost(string, tag="2")]
+    #[prost(string, tag = "2")]
     pub stake: ::prost::alloc::string::String,
-    #[prost(uint64, tag="3")]
+    #[prost(uint64, tag = "3")]
     pub height: u64,
 }
 /// DelegationDelegatorReward represents the properties
@@ -129,9 +131,9 @@ pub struct DelegatorStartingInfo {
 #[derive(serde::Serialize, serde::Deserialize)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct DelegationDelegatorReward {
-    #[prost(string, tag="1")]
+    #[prost(string, tag = "1")]
     pub validator_address: ::prost::alloc::string::String,
-    #[prost(message, repeated, tag="2")]
+    #[prost(message, repeated, tag = "2")]
     pub reward: ::prost::alloc::vec::Vec<super::super::super::base::v1beta1::DecCoin>,
 }
 /// CommunityPoolSpendProposalWithDeposit defines a CommunityPoolSpendProposal
@@ -139,14 +141,14 @@ pub struct DelegationDelegatorReward {
 #[derive(serde::Serialize, serde::Deserialize)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 pub struct CommunityPoolSpendProposalWithDeposit {
-    #[prost(string, tag="1")]
+    #[prost(string, tag = "1")]
     pub title: ::prost::alloc::string::String,
-    #[prost(string, tag="2")]
+    #[prost(string, tag = "2")]
     pub description: ::prost::alloc::string::String,
-    #[prost(string, tag="3")]
+    #[prost(string, tag = "3")]
     pub recipient: ::prost::alloc::string::String,
-    #[prost(string, tag="4")]
+    #[prost(string, tag = "4")]
     pub amount: ::prost::alloc::string::String,
-    #[prost(string, tag="5")]
+    #[prost(string, tag = "5")]
     pub deposit: ::prost::alloc::string::String,
 }

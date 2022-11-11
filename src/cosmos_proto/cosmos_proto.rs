@@ -7,11 +7,11 @@ pub struct InterfaceDescriptor {
     /// a period) such that the fully qualified name of the interface will be
     /// package.name, ex. for the package a.b and interface named C, the
     /// fully-qualified name will be a.b.C.
-    #[prost(string, tag="1")]
+    #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
     /// description is a human-readable description of the interface and its
     /// purpose.
-    #[prost(string, tag="2")]
+    #[prost(string, tag = "2")]
     pub description: ::prost::alloc::string::String,
 }
 /// ScalarDescriptor describes an scalar type to be used with
@@ -28,18 +28,18 @@ pub struct ScalarDescriptor {
     /// a period) such that the fully qualified name of the scalar will be
     /// package.name, ex. for the package a.b and scalar named C, the
     /// fully-qualified name will be a.b.C.
-    #[prost(string, tag="1")]
+    #[prost(string, tag = "1")]
     pub name: ::prost::alloc::string::String,
     /// description is a human-readable description of the scalar and its
     /// encoding format. For instance a big integer or decimal scalar should
     /// specify precisely the expected encoding format.
-    #[prost(string, tag="2")]
+    #[prost(string, tag = "2")]
     pub description: ::prost::alloc::string::String,
     /// field_type is the type of field with which this scalar can be used.
     /// Scalars can be used with one and only one type of field so that
     /// encoding standards and simple and clear. Currently only string and
     /// bytes fields are supported for scalars.
-    #[prost(enumeration="ScalarType", repeated, tag="3")]
+    #[prost(enumeration = "ScalarType", repeated, tag = "3")]
     pub field_type: ::prost::alloc::vec::Vec<i32>,
 }
 #[derive(serde::Serialize, serde::Deserialize)]
